@@ -1,0 +1,64 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
+
+import React, { useState } from 'react';
+import {
+  Button,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Alert,
+} from 'react-native';
+
+
+function App(){
+  const [name,setName]=useState('');
+  const[age,setAge]=useState(0);
+  const[occupation,setOccuption]=useState('');
+  function InputUI(){
+   
+    Alert.alert(`xin chào ${name} \ntuổi ${age} \nnghề nghiệp là ${occupation}`);
+      
+    
+    }
+  return (
+<View>
+  <Text>fullname</Text>
+  <TextInput placeholder='Full Name' id='name' onChangeText={changedText =>setName(changedText)}></TextInput>
+  <Text>age</Text>
+  <TextInput placeholder='age'onChangeText={changedText =>setAge(parseInt(changedText))}></TextInput>
+  <Text>occupation</Text>
+  <TextInput placeholder='occupation'onChangeText={changedText => setOccuption(changedText)}></TextInput>
+  <Button title='clickme'onPress={InputUI}></Button>
+ 
+</View>
+ 
+  );
+
+}
+
+const styles = StyleSheet.create({
+  sectionContainer: {
+    marginTop: 32,
+    paddingHorizontal: 24,
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: '600',
+  },
+  sectionDescription: {
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: '400',
+  },
+  highlight: {
+    fontWeight: '700',
+  },
+});
+
+export default App;

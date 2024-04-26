@@ -1,0 +1,65 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
+
+import React, { useState } from 'react';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Button,
+} from 'react-native';
+
+
+
+
+
+
+function App(): React.JSX.Element {
+ const [number,setNumber]=useState(0);
+ function printSequence(){
+  let num=number;
+  console.log(num);
+  while(num!=1){
+    if(num%2!=0){
+      num=num/2;
+    }else{
+      num=(num*3)+1;
+    }
+    num=Math.floor(num);
+    console.log(num);
+  }
+}
+  return (
+    <View>
+      <Text> enter the number</Text>
+      <TextInput onChangeText={num=>setNumber((+num))}></TextInput>
+      <Button title="click me"onPress={printSequence}></Button>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  sectionContainer: {
+    marginTop: 32,
+    paddingHorizontal: 24,
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: '600',
+  },
+  sectionDescription: {
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: '400',
+  },
+  highlight: {
+    fontWeight: '700',
+  },
+});
+
+export default App;

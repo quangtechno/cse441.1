@@ -1,0 +1,72 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
+
+import React, { useState } from 'react';
+import type {PropsWithChildren} from 'react';
+import {
+  Alert,
+  Button,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TextInput,
+  useColorScheme,
+  View,
+} from 'react-native';
+
+import {
+  Colors,
+  DebugInstructions,
+  Header,
+  LearnMoreLinks,
+  ReloadInstructions,
+} from 'react-native/Libraries/NewAppScreen';
+
+
+
+
+function App(): React.JSX.Element {
+  const [number,setNumber]=useState(0);
+  function calculate(){
+    var num1=number%10;
+    var line=number.toString();
+    var num2 = Math.floor(number / Math.pow(10, line.length - 1));
+
+    var sum=num1+num2;
+    Alert.alert(`${sum}`);
+  }
+  return (
+    <View>
+      <Text>enter the number</Text>
+      <TextInput onChangeText={num=>setNumber(+num)}></TextInput>
+      <Button title='click me'onPress={calculate}></Button>
+    </View>
+  ); 
+}
+
+const styles = StyleSheet.create({
+  sectionContainer: {
+    marginTop: 32,
+    paddingHorizontal: 24,
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: '600',
+  },
+  sectionDescription: {
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: '400',
+  },
+  highlight: {
+    fontWeight: '700',
+  },
+});
+
+export default App;
